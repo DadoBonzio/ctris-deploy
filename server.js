@@ -10,6 +10,7 @@ const io = new Server(server);
 
 var games = [];
 
+
 function validateGamesForUser(socketid) {
     games.forEach(element => {
         if (element.p.includes(socketid)) {
@@ -70,21 +71,34 @@ function notifyGameChangesToClients(game) {
 
 
 app.get('/', (req, res) => {
-    res.sendFile(join(__dirname, 'index.html'));
+    res.sendFile(join(__dirname, 'src/pages/index.html'));
 });
 
 app.get('/lobby', (req, res) => {
-    res.sendFile(join(__dirname, 'lobby.html'));
+    res.sendFile(join(__dirname, 'src/pages/lobby.html'));
 });
 
 
 app.get('/game', (req, res) => {
-    res.sendFile(join(__dirname, 'game.html'));
+    res.sendFile(join(__dirname, 'src/pages/game.html'));
 });
 
 app.get('/gamecardimg', (req, res) => {
-    res.sendFile(join(__dirname, 'gamecardimg.jpg'));
+    res.sendFile(join(__dirname, 'src/images/gamecardimg.jpg'));
 })
+
+app.get('/style', (req, res) => {
+    res.sendFile(join(__dirname, 'src/css/style.css'));
+})
+
+app.get('/script', (req, res) => {
+    res.sendFile(join(__dirname, 'src/js/script.js'));
+})
+
+app.get('/ctrisico', (req, res) => {
+    res.sendFile(join(__dirname, 'src/images/cTris.ico'));
+})
+
 
 io.on('connection', (socket) => {
     console.log('a user connected: ' + socket.id);
@@ -97,6 +111,10 @@ io.on('connection', (socket) => {
             changeGameStatus(data.game.code, true);
         }
         io.to(socketid).emit('recieveMove', data);
+    })
+
+    socket.on('sendchar', (socketid, char) => {
+        io.to(socketid).emit('recievechar', char);
     })
 
     socket.on('disconnect', () => {
