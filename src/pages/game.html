@@ -15,23 +15,21 @@
 </head>
 
 <body>
-    <h1>Imaginary Tris Epic Duel!</h1>
+    
     <p style="margin-bottom: 0;">
-        <ul>
-            <li id="matchCode">Match Code: </li>
-            <li id="yourId">Your Id: </li>
-            <li id="opponentId">Playing against: </li>
-        </ul>
+            <p id="matchCode">Match Code: </p>
+            <p style="visibility: hidden" id="yourId">Your Id: </p>
+            <p style="visibility: hidden" id="opponentId">Playing against: </p>
     </p>
 
     <main style="margin-top: 0px; border-top: 0px; padding-top: 0px;">
-        <h1><text style=" color:green">ℂ</text>-TR<text
+        <h1 style="display: none"><text style=" color:green">ℂ</text>-TR<text
                 style="font-family: 'Comic Sans MS', cursive; color:red">i</text>S</h1>
         <h3 id="trisDisplayer">You have to make a tris of: </h3>
         <h3 id="oppTrisDisplayer">You have to make a tris of: </h3>
         <h3 id="turnDisplayer">Your Turn</h3>
         <!--GRIGLIA DI GIOCO  -->
-        <table class="tabella" id="campo" style="width: 150px">
+        <table class="tabella" id="campo" style="width: 250px; height: 250px">
             <tr>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
