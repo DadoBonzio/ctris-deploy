@@ -12,6 +12,20 @@ i9html,
 
 }
 
+.lobbyTitle {
+  text-align: center;
+  font-size: 50px;
+  color: darkblue;
+}
+
+.whiteText {
+  color: white;
+}
+
+#yourId {
+  
+}
+
 .tasto {
 
   background-color: #4CAF50;
